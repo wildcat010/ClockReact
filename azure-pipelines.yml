@@ -11,7 +11,7 @@ pool:
 
 # Set variables
 variables:
-  directory: wildcat010/ClockReact
+  directory: D:\a\r1\a\
   stage: development
   serviceConnection: reactclock
   appServiceName: projectclockreact
