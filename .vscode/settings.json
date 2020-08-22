@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/f2d275ba-106f-4513-aa0c-0d070cc446ee/resourceGroups/PortfolioPresentation/providers/Microsoft.Web/sites/ClockReactProject"
+}
