@@ -104,6 +104,7 @@ class App extends Component {
               )
             })}
 
+
             {this.array(60).map((x,index)=>{
               return (
                 <div key={index} 
