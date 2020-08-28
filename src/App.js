@@ -5,16 +5,16 @@ class App extends Component {
   constructor(){
     super()
     this.state=({
-      year:2019,
-      M_month:'Mar',
+      year:2020,
+      M_month:'Jan',
       month:1,
       day:1,
       week:1,
       hour:12,
       Minute:1,
       second:1,
-      Zodiac:'Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces'.split(','),
-      M_months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Spt","Oct","Nov","Dec"],
+      Zodiac:'Bélier, Taureau, Gémeaux, Cancer, Lion, Vierge, Balance, Scorpion, Sagittaire, Capricorne, Verseau, Poisson'.split(','),
+      M_months:["Jan","Fev","Mar","Avr","Mai","Juin","Jul","Aout","Spt","Oct","Nov","Dec"],
     })
   }
 
@@ -48,7 +48,7 @@ class App extends Component {
           <div className='msg'>
             <div  className='year'>
             <span>
-            {this.state.year}</span> / Year
+            {this.state.year}</span> / Année
             </div>
           </div>
           <div className='M_month'>
@@ -61,7 +61,7 @@ class App extends Component {
             {this.array(12).map((x,index)=>{
               return (
                 <div key={index} className={`month item ${index===(this.state.month-1)?"active":""}`} style={{transform: `rotate(${index*30-30*(this.state.month-1)}deg)`}}>
-                  {`${x} month`}
+                  {`${this.state.M_months[x-1]}`}
                 </div>
               )
             })}
