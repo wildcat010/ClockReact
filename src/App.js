@@ -18,15 +18,24 @@ class App extends Component {
     })
   }
 
+  getNumberOfWeek() {
+      let time= new Date();
+      var firstWeekday = new Date(time.getFullYear(), time.getMonth(), 1).getDay() - 1;
+      if (firstWeekday < 0) firstWeekday = 6;
+      var offsetDate = time.getDate() + firstWeekday - 1;
+      return Math.floor(offsetDate / 7) + 1;
+  }
+
  componentWillMount(){
    setInterval(()=>{
      let time= new Date()
      this.setState({
       year:this.state.Zodiac[time.getUTCFullYear()%12],
+      yearNumber: time.getUTCFullYear(),
       M_month:this.state.M_months[time.getUTCMonth()],
       month:time.getMonth()+1,
       day:time.getDate(),
-      week:time.getDay(),
+      week: this.getNumberOfWeek(),
       hour:time.getHours(),
       Minute:time.getMinutes(),
       second:time.getSeconds()
@@ -48,11 +57,11 @@ class App extends Component {
           <div className='msg'>
             <div  className='year'>
             <span>
-            {this.state.year}</span> / Année
+              {this.state.year}</span> 
             </div>
           </div>
           <div className='M_month'>
-          {`${this.state.M_month}`}
+          {`${this.state.M_month} / ${this.state.yearNumber}`}
           </div>
           <div className='box'>
 
@@ -69,7 +78,7 @@ class App extends Component {
             {this.array(30).map((x,index)=>{
               return (
                 <div key={index} className={`day item ${index===(this.state.day-1)?"active":""}`} style={{transform: `rotate(${index*12-12*(this.state.day-1)}deg)`}}>
-                  {`${x} day`}
+                  {`${x}`}
                 </div>
               )
             })}
